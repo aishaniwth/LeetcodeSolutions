@@ -1,2 +1,2 @@
 # LeetcodeSolutions
-A repo contatining leetcode solutions
+A repo containing leetcode solutions
