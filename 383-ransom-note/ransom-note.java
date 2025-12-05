@@ -15,11 +15,12 @@ if(map.get(magazine.charAt(i))==0){
     map.remove( magazine.charAt(i)  ) ;
 }
 
+if(map.isEmpty()) {return true;}
+
            }
         }
 
-return map.isEmpty();
-
+return false;
 
     }
 }
