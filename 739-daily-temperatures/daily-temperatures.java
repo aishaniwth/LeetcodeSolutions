@@ -8,7 +8,7 @@ class Solution {
                 st.pop();
             }
             st.push(i);
-            ans[i]=0;
+           // ans[i]=0;
         } return ans;
     }
 }
