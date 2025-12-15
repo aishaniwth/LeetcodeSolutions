@@ -36,7 +36,7 @@ st.pop();
 
 
 for(int i = 0 ; i < nums.length ; i++ ) {
-if(nge[i]==-1 || pge[i] ==-1) continue; 
+if(nge[i]!=-1 && pge[i] !=-1)  
  counter++;
 } 
 
