@@ -37,18 +37,11 @@ sb.append(Integer.toString(st.pop() ));
 }
 
 sb.reverse();
-int index =-1;
- for(int i = 0 ;i<=sb.length()-1;i++){
-    if(sb.charAt(i)!='0')
-    {index=i;
-    break;}
- } 
-if(index==-1){return "0";}
-if(index>0){
-    sb.replace(0,index,"");
+while(sb.length()>0  && sb.charAt(0)=='0'){
+    sb.deleteCharAt(0);
 }
 
-
+if(sb.length()==0){return "0";}
  return sb.toString();
 
     }
