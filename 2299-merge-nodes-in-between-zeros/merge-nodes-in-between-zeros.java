@@ -13,16 +13,20 @@ class Solution {
         ListNode curr = head;
         ListNode dummy = new ListNode (-1);
         ListNode ans = dummy;
-        int sum = 0 ; 
+        ListNode sum = null ; 
         while(curr.next!=null && curr.val==0){
 curr=curr.next;
+sum=curr;
+
             while(curr.val!=0){
-                sum = sum+curr.val;
                 curr=curr.next;
-            }
-            ans.next=new ListNode(sum);
+                sum.val=sum.val+curr.val;
+                
+                
+            }sum.next=null;
+            ans.next=sum;
             ans=ans.next;
-            sum=0;
+            
         } return dummy.next;
         
     }
