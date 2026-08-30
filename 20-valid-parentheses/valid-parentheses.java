@@ -1,30 +1,39 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack <Character> st = new Stack <>();
-        if(s.length()<2){return false;}
-        String close = "}])";
-        for(int i = 0 ; i <s.length() ; i++){
-        if (!st.isEmpty() && close.indexOf(s.charAt(i)) > -1 ){
-      if(s.charAt(i)==')' ) { 
-        if(st.peek()=='(') 
-       st.pop(); 
-      else{return false;} }  
-      
-  else if(s.charAt(i)=='}' ) { 
-        if(st.peek()=='{') 
-       st.pop(); 
-      else{return false;} }  
 
-else if(s.charAt(i)==']' ) { 
-        if(st.peek()=='[') 
-       st.pop(); 
-      else{return false;} }  
+Set<Character> open = new HashSet<>();
+open.add('(') ;
+open.add('{');
+open.add('[');
 
-      
-      
-      } else st.push(s.charAt(i));
+Set<Character> close = new HashSet<>();
+close.add(')') ;
+close.add('}');
+close.add(']');
 
-        } return st.isEmpty();
+Stack <Character> st = new Stack <> ();
 
-    } 
+for(int i =0 ; i <s.length();i++){
+if(  open.contains(s.charAt(i)) ){
+    st.push(s.charAt(i));
+    continue;
+}
+
+if(close.contains(s.charAt(i)) && !st.isEmpty()){
+    if(  (st.peek()=='{' && s.charAt(i)=='}' )  ||   (st.peek()=='[' && s.charAt(i)==']' )  ||
+    
+    
+    (st.peek()=='(' && s.charAt(i)==')' )    ){
+        st.pop();
+    } else {st.push(s.charAt(i));}
+} else {
+    st.push(s.charAt(i));
+} 
+
+
+
+}
+ return st.isEmpty();
+        
+    }
 }
